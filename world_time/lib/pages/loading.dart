@@ -12,18 +12,22 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
   void getTime() async {
     // Make network request
-    Uri uri = Uri.http('worldtimeapi.org', "/api/timezone/Asia/Manila");
-    Response response = await get(uri);
-    Map data = jsonDecode(response.body);
+    Uri uri = Uri.http("worldtimeapi.org", "/api/timezone/Asia/Manila");
+    try {
+      Response response = await get(uri);
+      Map data = jsonDecode(response.body);
 
-    // Get properties
-    String datetime = data['datetime'];
-    String offset = data['utc_offset'].substring(1, 3);
+      // Get properties
+      String datetime = data['datetime'];
+      String offset = data['utc_offset'].substring(1, 3);
 
-    // Create datetime object
-    DateTime now = DateTime.parse(datetime);
-    now.add(Duration(hours: int.parse(offset)));
-    print(now);
+      // Create datetime object
+      DateTime now = DateTime.parse(datetime);
+      now.add(Duration(hours: int.parse(offset)));
+      print(now);
+    } catch (error) {
+      print(error);
+    }
   }
 
   @override
