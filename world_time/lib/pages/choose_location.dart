@@ -10,17 +10,23 @@ class ChooseLocation extends StatefulWidget {
 class _ChooseLocationState extends State<ChooseLocation> {
   int counter = 0;
 
+  void getData() async {
+    // simulate network request
+    String name = await Future.delayed(const Duration(seconds: 3), () {
+      return "Mart";
+    });
+    print(name);
+  }
+
   @override
   void initState() {
     super.initState();
 
-    print('Init state');
+    getData();
   }
 
   @override
   Widget build(BuildContext context) {
-    print("build");
-
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
