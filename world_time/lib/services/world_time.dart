@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -12,8 +14,8 @@ class WorldTime {
   Future<void> getTime() async {
     // Make network request
     // Uri uri = Uri.parse("http://worldtimeapi.org/api/timezone/Asia/Manila");
-    Uri uri = Uri.parse('https://timeapi.io/api/TimeZone/zone?timeZone=$url');
     try {
+      Uri uri = Uri.parse('https://timeapi.io/api/TimeZone/zone?timeZone=$url');
       http.Response response = await http.get(uri);
       Map data = jsonDecode(response.body);
 
@@ -28,6 +30,7 @@ class WorldTime {
       time = now.toString();
     } catch (error) {
       print(error);
+      time = "Could not get data";
     }
   }
 }
