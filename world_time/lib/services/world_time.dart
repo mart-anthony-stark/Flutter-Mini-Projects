@@ -20,7 +20,6 @@ class WorldTime {
       Uri uri = Uri.parse('https://timeapi.io/api/TimeZone/zone?timeZone=$url');
       http.Response response = await http.get(uri);
       Map data = jsonDecode(response.body);
-      print(data);
 
       int utcOffsetSeconds = data["currentUtcOffset"]["seconds"];
       Duration offset = Duration(seconds: utcOffsetSeconds);
