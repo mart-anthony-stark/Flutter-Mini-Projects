@@ -9,6 +9,7 @@ class WorldTime {
   late String time;
   late String flag; // url to asset flag icon
   late String url;
+  late bool isDaytime;
 
   WorldTime({required this.location, required this.flag, required this.url});
 
@@ -19,6 +20,7 @@ class WorldTime {
       Uri uri = Uri.parse('https://timeapi.io/api/TimeZone/zone?timeZone=$url');
       http.Response response = await http.get(uri);
       Map data = jsonDecode(response.body);
+      print(data);
 
       int utcOffsetSeconds = data["currentUtcOffset"]["seconds"];
       Duration offset = Duration(seconds: utcOffsetSeconds);
@@ -28,6 +30,7 @@ class WorldTime {
       now.add(offset);
 
       // Set time property
+      isDaytime = now.hour >= 6 && now.hour < 8;
       time = DateFormat.jm().format(now);
     } catch (error) {
       print(error);
