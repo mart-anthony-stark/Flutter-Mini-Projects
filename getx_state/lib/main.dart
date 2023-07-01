@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_state/views/home.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,74 +11,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _nameController = TextEditingController();
-
-    return GetMaterialApp(
-        title: "SnackBar",
-        home: Scaffold(
-          appBar: AppBar(title: const Text("GetX Snackbar")),
-          body: Center(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                  onPressed: () {
-                    Get.snackbar("Snackbar Title", "Snackbar Message",
-                        snackPosition: SnackPosition.BOTTOM,
-                        backgroundGradient: const LinearGradient(colors: [
-                          Color.fromARGB(255, 98, 0, 117),
-                          Color.fromARGB(255, 17, 0, 255),
-                        ]),
-                        colorText: Colors.white,
-                        isDismissible: true,
-                        dismissDirection: DismissDirection.horizontal,
-                        icon: const Icon(
-                          Icons.check,
-                          color: Colors.white,
-                        ),
-                        mainButton: TextButton(
-                            onPressed: () {},
-                            child: const Icon(
-                              Icons.send,
-                              color: Colors.white,
-                            )), onTap: (val) {
-                      print("clicked");
-                    }, margin: const EdgeInsets.all(10));
-                  },
-                  child: const Text('Show Snackbar')),
-              ElevatedButton(
-                  onPressed: () {
-                    Get.defaultDialog(
-                      title: "Title",
-                      titleStyle: const TextStyle(fontSize: 23),
-                      middleText: "Middle Text",
-                      textConfirm: "Confirm",
-                      textCancel: "Cancel",
-                      onConfirm: () {
-                        print(_nameController.text);
-                        Get.back(closeOverlays: true);
-                        _nameController.text = "";
-                      },
-                      content: Column(
-                        children: <Widget>[
-                          const Text("Hello"),
-                          TextField(
-                            controller: _nameController,
-                            decoration:
-                                const InputDecoration(hintText: "Username"),
-                          )
-                        ],
-                      ),
-                      // confirm: IconButton(
-                      //     onPressed: () {}, icon: const Icon(Icons.send)),
-                      // backgroundColor:
-                      //     const Color.fromARGB(255, 201, 201, 201)
-                    );
-                  },
-                  child: const Text("Show Dialog"))
-            ],
-          )),
-        ));
+    return GetMaterialApp(title: "SnackBar", home: const Home());
   }
 }
