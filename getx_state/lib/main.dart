@@ -10,6 +10,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _nameController = TextEditingController();
+
     return GetMaterialApp(
         title: "SnackBar",
         home: Scaffold(
@@ -44,7 +46,36 @@ class MainApp extends StatelessWidget {
                     }, margin: const EdgeInsets.all(10));
                   },
                   child: const Text('Show Snackbar')),
-              ElevatedButton(onPressed: () {}, child: const Text("Show Dialog"))
+              ElevatedButton(
+                  onPressed: () {
+                    Get.defaultDialog(
+                      title: "Title",
+                      titleStyle: const TextStyle(fontSize: 23),
+                      middleText: "Middle Text",
+                      textConfirm: "Confirm",
+                      textCancel: "Cancel",
+                      onConfirm: () {
+                        print(_nameController.text);
+                        Get.back(closeOverlays: true);
+                        _nameController.text = "";
+                      },
+                      content: Column(
+                        children: <Widget>[
+                          const Text("Hello"),
+                          TextField(
+                            controller: _nameController,
+                            decoration:
+                                const InputDecoration(hintText: "Username"),
+                          )
+                        ],
+                      ),
+                      // confirm: IconButton(
+                      //     onPressed: () {}, icon: const Icon(Icons.send)),
+                      // backgroundColor:
+                      //     const Color.fromARGB(255, 201, 201, 201)
+                    );
+                  },
+                  child: const Text("Show Dialog"))
             ],
           )),
         ));
