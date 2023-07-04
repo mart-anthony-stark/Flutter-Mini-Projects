@@ -16,7 +16,8 @@ class Screen2 extends StatelessWidget {
                 Get.back(result: "as");
               },
               child: const Text('Go Back')),
-          Text('${Get.arguments["name"]}')
+          Text('${Get.arguments?["name"]}'),
+          Text('${Get.parameters["id"]}'),
         ],
       )),
     );

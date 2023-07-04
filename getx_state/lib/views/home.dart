@@ -110,6 +110,7 @@ class Home extends StatelessWidget {
                     backgroundColor: const Color.fromARGB(255, 175, 85, 190));
               },
               child: const Text("Show bottomsheet")),
+          // Unnamed Route Navigation
           ElevatedButton(
               onPressed: () async {
                 var data = await Get.to(const Screen2(),
@@ -119,7 +120,23 @@ class Home extends StatelessWidget {
                     arguments: {'name': "mart"});
                 print(data);
               },
-              child: const Text("Go to next screen"))
+              child: const Text("Go to next screen")),
+          // Named Route Navigation
+          ElevatedButton(
+              onPressed: () async {
+                // var data = await Get.toNamed(
+                //   '/screen2',
+                //   arguments: {'name': "mart"},
+                // );
+                // print(data);
+                // No option to return to previous screen
+                // Get.offNamed("screen2");
+                // Get.offAllNamed("screen2");
+                // Dynamic URL Link
+                // Get.toNamed('/screen2?name=Mart Anthony&content=Flutter GetX');
+                Get.toNamed('/screen2/1');
+              },
+              child: const Text("Go to screen 2")),
         ],
       )),
     );
