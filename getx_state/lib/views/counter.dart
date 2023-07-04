@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Counter extends StatefulWidget {
   const Counter({super.key});
@@ -8,7 +9,16 @@ class Counter extends StatefulWidget {
 }
 
 class _CounterState extends State<Counter> {
-  int _num = 0;
+  // int _num = 0;
+  var count = 0.obs;
+
+  void increment() {
+    // setState(() {
+    //   _num++;
+    // });
+    count++;
+    print(count);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +27,15 @@ class _CounterState extends State<Counter> {
         title: const Text('Counter'),
       ),
       body: Center(
-          child: Column(
-        children: [
-          Text("Counter: $_num"),
-          TextButton(
-              onPressed: () {
-                setState(() {
-                  _num++;
-                });
-              },
-              child: const Text('Increment'))
-        ],
-      )),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Obx(() => Text("Counter: $count")),
+            ElevatedButton(
+                onPressed: () => increment(), child: const Text('Increment'))
+          ],
+        ),
+      ),
     );
   }
 }
