@@ -137,6 +137,11 @@ class Home extends StatelessWidget {
                 Get.toNamed('/screen2/1');
               },
               child: const Text("Go to screen 2")),
+          ElevatedButton(
+              onPressed: () {
+                Get.toNamed("/counter");
+              },
+              child: const Text('Counter'))
         ],
       )),
     );
