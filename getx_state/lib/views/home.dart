@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_state/views/screen2.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -108,7 +109,17 @@ class Home extends StatelessWidget {
                     // barrierColor: Colors.greenAccent.shade100
                     backgroundColor: const Color.fromARGB(255, 175, 85, 190));
               },
-              child: const Text("Show bottomsheet"))
+              child: const Text("Show bottomsheet")),
+          ElevatedButton(
+              onPressed: () async {
+                var data = await Get.to(const Screen2(),
+                    fullscreenDialog: true,
+                    transition: Transition.zoom,
+                    duration: Duration(milliseconds: 300),
+                    arguments: {'name': "mart"});
+                print(data);
+              },
+              child: const Text("Go to next screen"))
         ],
       )),
     );
