@@ -21,14 +21,27 @@ class _CounterState extends State<Counter2> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GetX<Counter2Controller>(
-              init: Counter2Controller(),
-              // initState: (state) => counter2controller.increment(),
-              // dispose: (_) => counter2controller.cleanupTask(),
+            GetBuilder<Counter2Controller>(
+              id: 'txtCount',
               builder: (controller) {
-                return Text("Value ${controller.count}");
+                return Text("Value txtCount: ${controller.count}");
               },
             ),
+            GetBuilder<Counter2Controller>(
+              id: "count2",
+              builder: (controller) {
+                return Text("Value txtCount: ${controller.count}");
+              },
+            ),
+
+            // GetX<Counter2Controller>(
+            //   init: Counter2Controller(),
+            //   // initState: (state) => counter2controller.increment(),
+            //   // dispose: (_) => counter2controller.cleanupTask(),
+            //   builder: (controller) {
+            //     return Text("Value: ${controller.count}");
+            //   },
+            // ),
             ElevatedButton(
                 onPressed: () {
                   Get.find<Counter2Controller>().increment();

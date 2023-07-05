@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 
 class Counter2Controller extends GetxController {
-  var count = 0.obs;
+  var count = 0;
 
   void increment() {
     count++;
-    // update();
+    update(['txtCount']);
   }
 
   void cleanupTask() {
