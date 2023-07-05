@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_state/controllers/counter_controller.dart';
 
 class Counter extends StatefulWidget {
   const Counter({super.key});
@@ -10,15 +11,10 @@ class Counter extends StatefulWidget {
 
 class _CounterState extends State<Counter> {
   // int _num = 0;
-  var count = 0.obs;
+  // var count = 0.obs;
 
-  void increment() {
-    // setState(() {
-    //   _num++;
-    // });
-    count++;
-    print(count);
-  }
+  // If init is not used in GetX<Type>
+  CounterController counterController = Get.put(CounterController());
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +26,20 @@ class _CounterState extends State<Counter> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Obx(() => Text("Counter: $count")),
+            GetX<CounterController>(
+              // init: CounterController(),
+              builder: (controller) {
+                return Text("Value ${controller.count}");
+              },
+            ),
             ElevatedButton(
-                onPressed: () => increment(), child: const Text('Increment'))
+                onPressed: () {
+                  // Get.find<CounterController>().increment();
+
+                  // If init not used in GetX
+                  counterController.increment();
+                },
+                child: const Text("Increment"))
           ],
         ),
       ),
