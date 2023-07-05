@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_state/views/counter.dart';
+import 'package:getx_state/views/counter2.dart';
 import 'package:getx_state/views/home.dart';
 import 'package:getx_state/views/reactive_class.dart';
 import 'package:getx_state/views/screen2.dart';
@@ -25,6 +26,7 @@ class MainApp extends StatelessWidget {
         ),
         GetPage(name: "/screen2/:id", page: () => const Screen2()),
         GetPage(name: "/counter", page: () => const Counter()),
+        GetPage(name: "/counter2", page: () => const Counter2()),
         GetPage(name: "/reactive-class", page: () => ReactiveClass()),
       ],
     );

@@ -142,6 +142,11 @@ class Home extends StatelessWidget {
                 Get.toNamed("/counter");
               },
               child: const Text('Counter')),
+          ElevatedButton(
+              onPressed: () {
+                Get.toNamed("/counter2");
+              },
+              child: const Text('Counter2')),
           //Reactive class
           ElevatedButton(
               onPressed: () {
