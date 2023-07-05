@@ -10,6 +10,7 @@ class Counter2 extends StatefulWidget {
 }
 
 class _CounterState extends State<Counter2> {
+  Counter2Controller counter2controller = Get.put(Counter2Controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +23,8 @@ class _CounterState extends State<Counter2> {
           children: [
             GetX<Counter2Controller>(
               init: Counter2Controller(),
+              // initState: (state) => counter2controller.increment(),
+              // dispose: (_) => counter2controller.cleanupTask(),
               builder: (controller) {
                 return Text("Value ${controller.count}");
               },
