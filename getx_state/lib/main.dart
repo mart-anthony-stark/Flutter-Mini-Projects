@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_state/services/all_controller_binding.dart';
 import 'package:getx_state/services/service.dart';
 import 'package:getx_state/views/counter.dart';
 import 'package:getx_state/views/counter2.dart';
@@ -25,6 +26,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: AllControllerBinding(),
       title: "SnackBar",
       initialRoute: "/",
       getPages: [

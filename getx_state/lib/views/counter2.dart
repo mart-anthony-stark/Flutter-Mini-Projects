@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_state/controllers/counter2_controller.dart';
+import 'package:getx_state/controllers/counter_controller.dart';
 
 class Counter2 extends StatefulWidget {
   const Counter2({super.key});
@@ -33,7 +34,8 @@ class _CounterState extends State<Counter2> {
                 return Text("Value txtCount: ${controller.count}");
               },
             ),
-
+            Obx(() =>
+                Text('The value is ${Get.find<CounterController>().count()}')),
             // GetX<Counter2Controller>(
             //   init: Counter2Controller(),
             //   // initState: (state) => counter2controller.increment(),
@@ -46,7 +48,12 @@ class _CounterState extends State<Counter2> {
                 onPressed: () {
                   Get.find<Counter2Controller>().increment();
                 },
-                child: const Text("Increment"))
+                child: const Text("Increment")),
+            ElevatedButton(
+                onPressed: () {
+                  Get.find<CounterController>().increment();
+                },
+                child: const Text("Increment Bind")),
           ],
         ),
       ),
