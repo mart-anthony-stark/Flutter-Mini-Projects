@@ -1,4 +1,5 @@
 import 'package:flashcards/common/AppColor.dart';
+import 'package:flashcards/flashcard_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 
@@ -38,33 +39,14 @@ class MainApp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const SizedBox(
-                width: 250,
-                height: 250,
-                child: FlipCard(
-                  front: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15.0))),
-                    color: AppColor.PRIMARY,
-                    child: Center(
-                      child: Text(
-                        'Frontside',
-                        style: TextStyle(color: Colors.white),
-                      ),
+                  width: 250,
+                  height: 250,
+                  child: FlipCard(
+                    front: FlashcardView(
+                      text: "text",
                     ),
-                  ),
-                  back: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15.0))),
-                    color: AppColor.SECONDARY,
-                    child: Center(
-                      child: Text(
-                        'Backside',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+                    back: FlashcardView(text: "back", side: "back"),
+                  )),
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
