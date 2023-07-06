@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_state/services/all_controller_binding.dart';
 import 'package:getx_state/services/service.dart';
+import 'package:getx_state/views/cosmetics.dart';
 import 'package:getx_state/views/counter.dart';
 import 'package:getx_state/views/counter2.dart';
 import 'package:getx_state/views/home.dart';
@@ -39,7 +40,8 @@ class MainApp extends StatelessWidget {
         GetPage(name: "/counter", page: () => const Counter()),
         GetPage(name: "/counter2", page: () => const Counter2()),
         GetPage(name: "/reactive-class", page: () => ReactiveClass()),
-        GetPage(name: '/services', page: () => const ServiceScreen())
+        GetPage(name: '/services', page: () => const ServiceScreen()),
+        GetPage(name: '/cosmetics', page: () => const Cosmetics()),
       ],
     );
   }

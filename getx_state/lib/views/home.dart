@@ -161,6 +161,11 @@ class Home extends StatelessWidget {
                 Get.toNamed("/services");
               },
               child: const Text('Services')),
+          ElevatedButton(
+              onPressed: () {
+                Get.toNamed("/cosmetics");
+              },
+              child: const Text('Fetch API')),
         ],
       )),
     );
