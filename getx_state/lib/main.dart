@@ -16,7 +16,7 @@ Future<void> main() async {
 
 Future<void> initServices() async {
   print("Starting services...");
-  await Get.putAsync<Service>(() async => await Service());
+  await Get.putAsync<Service>(() async => Service());
   print("Services started");
 }
 
