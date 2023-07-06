@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-List<Product> productFromJson(String str) =>
-    List<Product>.from(json.decode(str).map((x) => Product.fromJson(x)));
+List<ProductModel> productFromJson(String str) => List<ProductModel>.from(
+    json.decode(str).map((x) => ProductModel.fromJson(x)));
 
-String productToJson(List<Product> data) =>
+String productToJson(List<ProductModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Product {
+class ProductModel {
   int id;
   String brand;
   String name;
@@ -27,7 +27,7 @@ class Product {
   String apiFeaturedImage;
   List<ProductColor> productColors;
 
-  Product({
+  ProductModel({
     required this.id,
     required this.brand,
     required this.name,
@@ -49,7 +49,7 @@ class Product {
     required this.productColors,
   });
 
-  factory Product.fromJson(Map<String, dynamic> json) => Product(
+  factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
         id: json["id"],
         brand: json["brand"],
         name: json["name"],
