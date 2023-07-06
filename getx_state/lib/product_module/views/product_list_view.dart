@@ -35,20 +35,36 @@ class ProductListView extends StatelessWidget {
                           8,
                           8,
                         ),
-                        child: ClipRect(
-                            child: Image.network(
-                          productController.productList[index].imageLink,
-                          width: 150,
-                          height: 100,
-                          fit: BoxFit.fill,
-                          color: AppColor.purpleColor,
-                          colorBlendMode: BlendMode.color,
-                        )),
+                        child: const ClipRect(
+                            //   child: Image.network(
+                            // productController.productList[index].imageLink,
+                            //   width: 150,
+                            //   height: 100,
+                            //   fit: BoxFit.fill,
+                            //   color: AppColor.purpleColor,
+                            //   colorBlendMode: BlendMode.color,
+                            //   ,
+                            // ),
+                            child: Text('Image')),
                       ),
-                      const SizedBox(
-                        width: 30,
-                      ),
-                      Text(productController.productList[index].brand),
+                      Flexible(
+                          child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(productController.productList[index].name),
+                          Text(
+                            productController.productList[index].brand,
+                            style: const TextStyle(
+                                fontSize: 14, color: AppColor.grey),
+                          ),
+                          Text(
+                            productController.productList[index].productType,
+                            style: const TextStyle(
+                                fontSize: 14, color: AppColor.grey),
+                          ),
+                        ],
+                      ))
                     ],
                   )
                 ],
