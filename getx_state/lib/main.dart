@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_state/services/service.dart';
 import 'package:getx_state/views/counter.dart';
 import 'package:getx_state/views/counter2.dart';
 import 'package:getx_state/views/home.dart';
 import 'package:getx_state/views/reactive_class.dart';
 import 'package:getx_state/views/screen2.dart';
+import 'package:getx_state/views/service_screen.dart';
 
-void main() {
+Future<void> main() async {
+  await initServices();
   runApp(const MainApp());
+}
+
+Future<void> initServices() async {
+  print("Starting services...");
+  await Get.putAsync<Service>(() async => await Service());
+  print("Services started");
 }
 
 class MainApp extends StatelessWidget {
@@ -28,6 +37,7 @@ class MainApp extends StatelessWidget {
         GetPage(name: "/counter", page: () => const Counter()),
         GetPage(name: "/counter2", page: () => const Counter2()),
         GetPage(name: "/reactive-class", page: () => ReactiveClass()),
+        GetPage(name: '/services', page: () => const ServiceScreen())
       ],
     );
   }

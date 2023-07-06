@@ -153,6 +153,12 @@ class Home extends StatelessWidget {
                 Get.toNamed("/reactive-class");
               },
               child: const Text('Reactive Class')),
+          // Services
+          ElevatedButton(
+              onPressed: () {
+                Get.toNamed("/services");
+              },
+              child: const Text('Services')),
         ],
       )),
     );
