@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_state/controllers/counter_controller.dart';
 import 'package:getx_state/views/screen2.dart';
 
 class Home extends StatelessWidget {
@@ -16,6 +17,7 @@ class Home extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          Obx(() => Text("Count: ${Get.find<CounterController>().count}")),
           // Snackbar
           ElevatedButton(
               onPressed: () {
